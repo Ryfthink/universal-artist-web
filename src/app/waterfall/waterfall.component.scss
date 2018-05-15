@@ -1,0 +1,17 @@
+:host {
+  display: block;
+  margin-top: 1rem;
+}
+
+.grid {
+  margin: 0 auto;
+}
+
+.card {
+  display: inline-block;
+  margin: 1rem;
+  width: 25rem;
+  @media (max-width: 991.98px) {
+    width: 18rem;
+  }
+}
