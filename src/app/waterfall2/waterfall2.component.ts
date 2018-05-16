@@ -1,5 +1,4 @@
-import {AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
-import {cards} from '../waterfall/cards';
+import {AfterViewInit, Component, ElementRef, OnDestroy, ViewChild} from '@angular/core';
 import * as Masonry from 'masonry-layout';
 
 @Component({
@@ -9,20 +8,46 @@ import * as Masonry from 'masonry-layout';
 })
 export class Waterfall2Component implements AfterViewInit, OnDestroy {
 
-  @ViewChild('masonry')
+  @ViewChild('grid')
   public grid: ElementRef;
 
   public masonryInstance: Masonry;
 
+  items: Item[] = [];
+
+  constructor() {
+    for (let i = 0; i < 100; i++) {
+      this.items.push({
+        size: Math.random() >= 0.5 ? 'large' : 'normal',
+        value: '' + i
+      });
+    }
+  }
+
   // https://codepen.io/vur/pen/bNPQyK
 
   ngAfterViewInit() {
-    const options: Masonry.Options = {
-      itemSelector: '.item',
+    // const options: Masonry.Options = {
+    //   itemSelector: '.item',
+    //   columnWidth: '.grid-sizer',
+    //   gutter: 20,
+    //   fitWidth: true,
+    //   transitionDuration: 0,
+    //   percentPosition: true
+    // };
+    /*
+    {
       columnWidth: '.grid-sizer',
-      gutter: 20,
-      fitWidth: true,
-      transitionDuration: 0
+      itemSelector: '.item',
+      transitionDuration: 0,
+      percentPositio: true
+    }
+     */
+    const options: Masonry.Options = {
+      columnWidth: '.grid-sizer',
+      itemSelector: '.item',
+      transitionDuration: 100,
+      percentPosition: true
     };
     this.masonryInstance = new Masonry(this.grid.nativeElement, options);
   }
@@ -32,10 +57,7 @@ export class Waterfall2Component implements AfterViewInit, OnDestroy {
   }
 }
 
-/*
-$('.masonry').masonry({
-  "columnWidth": ".grid-sizer",
-	"itemSelector": ".item",
-  transitionDuration: 0,
-  "percentPosition": true });
- */
+interface Item {
+  value: string;
+  size: 'large' | 'normal';
+}

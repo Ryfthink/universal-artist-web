@@ -1,27 +1,8 @@
 <h1>Masonry - columnWidth percentage width</h1>
-<div class="masonry" #masonry>
-  <div class="grid-sizer"></div>
-  <div class="item"></div>
-  <div class="item w2 h2"></div>
-  <div class="item h3"></div>
-  <div class="item h2"></div>
-  <div class="item w3"></div>
-  <div class="item"></div>
-  <div class="item"></div>
-  <div class="item h2"></div>
-  <div class="item w2 h3"></div>
-  <div class="item"></div>
-  <div class="item h2"></div>
-  <div class="item"></div>
-  <div class="item w2 h2"></div>
-  <div class="item w2"></div>
-  <div class="item"></div>
-  <div class="item h2"></div>
-  <div class="item"></div>
-  <div class="item"></div>
-  <div class="item h3"></div>
-  <div class="item h2"></div>
-  <div class="item"></div>
-  <div class="item"></div>
-  <div class="item h2"></div>
+<div class="masonry" #grid>
+  <div class="grid-sizer">1</div>
+  <div *ngFor="let item of items" class="item"
+       [ngClass]="{'item-large': item.size == 'large', 'item-normal': item.size == 'normal'}">
+    {{item.value}}
+  </div>
 </div>
