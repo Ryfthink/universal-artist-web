@@ -5,6 +5,7 @@ import {FlexboxComponent} from './flexbox/flexbox.component';
 import {WaterfallComponent} from './waterfall/waterfall.component';
 import {CardColumnComponent} from './card-column/card-column.component';
 import {Waterfall2Component} from './waterfall2/waterfall2.component';
+import {GridComponent} from './grid/grid.component';
 
 const routes: Routes = [
   {
@@ -31,6 +32,10 @@ const routes: Routes = [
   {
     path: 'card-column',
     component: CardColumnComponent
+  },
+  {
+    path: 'grid',
+    component: GridComponent
   }
 ];
 
