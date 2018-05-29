@@ -1,41 +1,40 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {PostComponent} from './post/post.component';
-import {FlexboxComponent} from './flexbox/flexbox.component';
-import {WaterfallComponent} from './waterfall/waterfall.component';
-import {CardColumnComponent} from './card-column/card-column.component';
-import {Waterfall2Component} from './waterfall2/waterfall2.component';
-import {GridComponent} from './grid/grid.component';
+import {Waterfall2Component} from './demo/waterfall2/waterfall2.component';
+import {HomeComponent} from './home/home.component';
+import {ShopComponent} from './shop/shop.component';
+import {AboutComponent} from './about/about.component';
+import {ContactComponent} from './contact/contact.component';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'post',
+    redirectTo: 'home',
     pathMatch: 'full'
   },
   {
-    path: 'post',
-    component: PostComponent
+    path: 'home',
+    component: HomeComponent
   },
   {
-    path: 'flexbox',
-    component: FlexboxComponent
-  },
-  {
-    path: 'waterfall',
-    component: WaterfallComponent,
+    path: 'home/:category',
+    component: HomeComponent
   },
   {
     path: 'waterfall2',
     component: Waterfall2Component,
   },
   {
-    path: 'card-column',
-    component: CardColumnComponent
+    path: 'shop',
+    component: ShopComponent
   },
   {
-    path: 'grid',
-    component: GridComponent
+    path: 'about',
+    component: AboutComponent
+  },
+  {
+    path: 'contact',
+    component: ContactComponent
   }
 ];
 
