@@ -8,7 +8,7 @@
       Azhong.work
     </a>
     <a *ngFor="let link of links" [routerLink]="link" class="link"
-       [ngClass]="{'active': currentUrl == '/' + link}">{{link}}</a>
+       [ngClass]="{'active': currentUrl?.startsWith('/' + link) }">{{link}}</a>
   </div>
   <router-outlet></router-outlet>
 </div>

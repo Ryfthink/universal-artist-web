@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -7,7 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  category: String = null;
+
+  links = [
+    {category: '', label: 'All'},
+    {category: 'illustration', label: 'Illustration'},
+    {category: 'brand', label: 'Branding'},
+    {category: 'uiux', label: 'UI UX'},
+  ];
+
+  constructor(private route: ActivatedRoute) {
+    this.route.paramMap.subscribe(params => {
+      this.category = params.get('category') || '';
+    });
+  }
 
   ngOnInit() {
   }

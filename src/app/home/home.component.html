@@ -1,6 +1,8 @@
 <div class="d-flex flex-row">
-  <a routerLink="/home" class="category">All</a>
-  <a routerLink="/home/illustration" class="category">Illustration</a>
-  <a routerLink="/home/branding" class="category">Branding</a>
-  <a routerLink="/home/uiux" class="category">UX&nbsp;UX</a>
+  <a *ngFor="let link of links"
+     [routerLink]="['/home', link.category]"
+     class="category-link"
+     [ngClass]="{'active': category == link.category}">
+    {{link.label}}
+  </a>
 </div>
