@@ -60,28 +60,12 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   }
   ngAfterViewInit() {
     // const options: Masonry.Options = {
-    //   itemSelector: '.item',
     //   columnWidth: '.grid-sizer',
-    //   gutter: 20,
-    //   fitWidth: true,
-    //   transitionDuration: 0,
+    //   itemSelector: '.item',
+    //   transitionDuration: 100,
     //   percentPosition: true
     // };
-    /*
-    {
-      columnWidth: '.grid-sizer',
-      itemSelector: '.item',
-      transitionDuration: 0,
-      percentPositio: true
-    }
-     */
-    const options: Masonry.Options = {
-      columnWidth: '.grid-sizer',
-      itemSelector: '.item',
-      transitionDuration: 100,
-      percentPosition: true
-    };
-    this.masonryInstance = new Masonry(this.grid.nativeElement, options);
+    // this.masonryInstance = new Masonry(this.grid.nativeElement, options);
   }
 
   ngOnDestroy() {
