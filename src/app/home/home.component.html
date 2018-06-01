@@ -6,3 +6,14 @@
     {{link.label}}
   </a>
 </div>
+
+<div class="masonry" #grid>
+  <div class="grid-sizer">1</div>
+  <div *ngFor="let item of items" class="item"
+       [ngClass]="{'item-large': item.size == 'large', 'item-normal': item.size == 'normal'}">
+    {{item.value}}
+  </div>
+</div>
+
+
+<pre>{{data | json}}</pre>

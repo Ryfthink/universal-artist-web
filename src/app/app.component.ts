@@ -14,7 +14,6 @@ export class AppComponent {
 
   constructor(private router: Router) {
     this.router.events.subscribe(value => {
-      console.log(value);
       if (value instanceof NavigationEnd) {
         this.currentUrl = (value as NavigationEnd).url;
       }
