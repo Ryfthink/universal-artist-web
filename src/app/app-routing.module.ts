@@ -47,7 +47,7 @@ const routes: Routes = [
   },
   {
     path: 'about',
-    component: AboutComponent
+    component: ContactComponent
   },
   {
     path: 'contact',
