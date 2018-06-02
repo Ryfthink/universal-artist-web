@@ -18,6 +18,7 @@ import {ShopComponent} from './shop/shop.component';
 import {AboutComponent} from './about/about.component';
 import {ContactComponent} from './contact/contact.component';
 import { SeedComponent } from './seed/seed.component';
+import { DetailComponent } from './detail/detail.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { SeedComponent } from './seed/seed.component';
     ShopComponent,
     AboutComponent,
     ContactComponent,
-    SeedComponent
+    SeedComponent,
+    DetailComponent
   ],
   imports: [
     HttpClientModule,

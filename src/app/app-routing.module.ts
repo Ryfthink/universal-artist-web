@@ -5,6 +5,7 @@ import {HomeComponent} from './home/home.component';
 import {ShopComponent} from './shop/shop.component';
 import {AboutComponent} from './about/about.component';
 import {ContactComponent} from './contact/contact.component';
+import {DetailComponent} from './detail/detail.component';
 
 const routes: Routes = [
   {
@@ -29,6 +30,10 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
+    path: 'detail/:id',
+    component: DetailComponent
+  },
+  {
     path: 'waterfall2',
     component: Waterfall2Component,
   },
@@ -43,7 +48,12 @@ const routes: Routes = [
   {
     path: 'contact',
     component: ContactComponent
-  }
+  },
+  {
+    path: '**',
+    redirectTo: 'home',
+    pathMatch: 'full'
+  },
 ];
 
 @NgModule({
