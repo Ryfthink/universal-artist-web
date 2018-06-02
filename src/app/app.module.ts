@@ -17,6 +17,7 @@ import {UaService} from './ua.service';
 import {ShopComponent} from './shop/shop.component';
 import {AboutComponent} from './about/about.component';
 import {ContactComponent} from './contact/contact.component';
+import { SeedComponent } from './seed/seed.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import {ContactComponent} from './contact/contact.component';
     HomeComponent,
     ShopComponent,
     AboutComponent,
-    ContactComponent
+    ContactComponent,
+    SeedComponent
   ],
   imports: [
     HttpClientModule,

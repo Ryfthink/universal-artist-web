@@ -1,6 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Observable, of} from 'rxjs';
-import {Seed} from './home/model/seed';
+import {Observable} from 'rxjs';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import {environment} from '../environments/environment';
 
@@ -15,7 +14,7 @@ export class UaService {
   requestSeedList(category: string): Observable<any> {
     const params = new HttpParams().set('timestamp', Date.now().toString());
     return this.http.get(`${environment.domain}/config/${category}`, {params});
-      // .do(console.log)
+    // .do(console.log)
     //
     // this.http.get('http://az-asset.septenary.cn/config/brand').subscribe(result => {
     //   console.log('AAA', result);

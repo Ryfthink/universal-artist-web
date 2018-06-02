@@ -1,10 +1,9 @@
-import {Component, OnInit} from '@angular/core';
-import {AfterViewInit, Component, OnInit, ElementRef, OnDestroy, ViewChild} from '@angular/core';
+import {AfterViewChecked, AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
 
 import {ActivatedRoute} from '@angular/router';
 
 import {UaService} from '../ua.service';
-import {Seed} from './model/seed';
+import {Seed} from '../seed/seed';
 
 import * as Masonry from 'masonry-layout';
 
@@ -13,7 +12,7 @@ import * as Masonry from 'masonry-layout';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
+export class HomeComponent implements OnInit, AfterViewInit, OnDestroy, AfterViewChecked {
 
   category: string = null;
 
@@ -24,7 +23,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     {category: 'uiux', label: 'UI UX'},
   ];
 
-  data: Seed[] = null;
+  data: Seed[] = [];
 
 
   @ViewChild('grid')
@@ -54,22 +53,41 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   requestData() {
     this.service.requestSeedList('brand')
       .subscribe((result: Seed[]) => {
-        console.log(result);
-        this.data = result;
+        let tmp = [];
+        for (let i = 0; i < 20; i++) {
+          tmp = tmp.concat(result);
+        }
+        this.data = tmp.shuffle();
+        // console.log(this.data);
+        console.log('requestSeedList');
       });
   }
+
   ngAfterViewInit() {
-    // const options: Masonry.Options = {
-    //   columnWidth: '.grid-sizer',
-    //   itemSelector: '.item',
-    //   transitionDuration: 100,
-    //   percentPosition: true
-    // };
-    // this.masonryInstance = new Masonry(this.grid.nativeElement, options);
+    console.log('ngAfterViewInit');
+  }
+
+  ngAfterViewChecked() {
+    console.log('ngAfterViewChecked');
+    if (this.data.length > 0 && !this.masonryInstance) {
+      console.log('init masonry');
+      const options: Masonry.Options = {
+        columnWidth: '.grid-sizer',
+        itemSelector: '.item',
+        transitionDuration: 100,
+        percentPosition: true
+      };
+      this.masonryInstance = new Masonry(this.grid.nativeElement, options);
+    }
+    if (this.masonryInstance) {
+      this.masonryInstance.layout();
+    }
   }
 
   ngOnDestroy() {
-    this.masonryInstance.destroy();
+    if (this.masonryInstance) {
+      this.masonryInstance.destroy();
+    }
   }
 }
 
