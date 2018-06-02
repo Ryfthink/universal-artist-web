@@ -50,12 +50,12 @@
   line-height: 2.3;
   text-decoration: none;
   color: #cecece;
-  background: rgba(0, 0, 0, 0.75);
+  background: rgba(0, 0, 0, 0.80);
   overflow: hidden;
   box-sizing: border-box;
   transition: 0.35s ease-in-out;
 
-  &:hover {
+  &:hover, &:active {
     opacity: 1;
   }
   .comment {
