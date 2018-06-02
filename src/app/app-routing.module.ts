@@ -17,7 +17,15 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'home/:category',
+    path: 'home/illustration',
+    component: HomeComponent
+  },
+  {
+    path: 'home/brand',
+    component: HomeComponent
+  },
+  {
+    path: 'home/uiux',
     component: HomeComponent
   },
   {

@@ -22,12 +22,10 @@
 
 .seed-large {
   @include aspect-ratio(540, 960);
-  background: #34b49d;
 }
 
 .seed-normal {
   @include aspect-ratio(540, 400);
-  background: #f48c56;
 }
 
 .seed img {

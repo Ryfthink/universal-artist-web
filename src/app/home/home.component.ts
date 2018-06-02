@@ -14,84 +14,68 @@ import * as Masonry from 'masonry-layout';
 })
 export class HomeComponent implements OnInit, AfterViewInit, OnDestroy, AfterViewChecked {
 
-  category: string = null;
-
-  links = [
-    {category: '', label: 'All'},
-    {category: 'illustration', label: 'Illustration'},
-    {category: 'brand', label: 'Branding'},
-    {category: 'uiux', label: 'UI UX'},
-  ];
-
-  data: Seed[] = [];
-
+  private options = {
+    columnWidth: '.grid-sizer',
+    itemSelector: '.item',
+    transitionDuration: 100,
+    percentPosition: true
+  } as Masonry.Options;
 
   @ViewChild('grid')
-  public grid: ElementRef;
+  private grid: ElementRef;
 
-  public masonryInstance: Masonry;
+  private needLayout = false;
 
-  items: Item[] = [];
+  public masonry: Masonry;
 
+  public category: string = null;
+
+  public links = [
+    {category: '', label: 'All', link: '/home'},
+    {category: 'brand', label: 'Branding', link: '/home/brand'},
+    {category: 'illustration', label: 'Illustration', link: '/home/illustration'},
+    {category: 'uiux', label: 'UI UX', link: '/home/uiux'},
+  ];
+
+  public data: Seed[] = [];
 
   constructor(private route: ActivatedRoute, private service: UaService) {
-    for (let i = 0; i < 100; i++) {
-      this.items.push({
-        size: Math.random() >= 0.5 ? 'large' : 'normal',
-        value: '' + i
-      });
-    }
   }
 
   ngOnInit() {
-    this.route.paramMap.subscribe(params => {
-      this.category = params.get('category') || '';
+    this.route.url.subscribe(segments => {
+      this.category = segments[1] ? segments[1].path : '';
+      console.log(this.category);
       this.requestData();
     });
   }
 
   requestData() {
-    this.service.requestSeedList('brand')
+    this.service.requestSeedList(this.category)
       .subscribe((result: Seed[]) => {
+        this.needLayout = true;
         let tmp = [];
         for (let i = 0; i < 20; i++) {
           tmp = tmp.concat(result);
         }
         this.data = tmp.shuffle();
-        // console.log(this.data);
-        console.log('requestSeedList');
+        this.data = result;
       });
   }
 
   ngAfterViewInit() {
-    console.log('ngAfterViewInit');
   }
 
   ngAfterViewChecked() {
-    console.log('ngAfterViewChecked');
-    if (this.data.length > 0 && !this.masonryInstance) {
-      console.log('init masonry');
-      const options: Masonry.Options = {
-        columnWidth: '.grid-sizer',
-        itemSelector: '.item',
-        transitionDuration: 100,
-        percentPosition: true
-      };
-      this.masonryInstance = new Masonry(this.grid.nativeElement, options);
-    }
-    if (this.masonryInstance) {
-      this.masonryInstance.layout();
+    if (this.needLayout) {
+      this.needLayout = false;
+      this.masonry = new Masonry(this.grid.nativeElement, this.options);
     }
   }
 
   ngOnDestroy() {
-    if (this.masonryInstance) {
-      this.masonryInstance.destroy();
+    if (this.masonry) {
+      this.masonry.destroy();
     }
   }
-}
-
-interface Item {
-  value: string;
-  size: 'large' | 'normal';
 }

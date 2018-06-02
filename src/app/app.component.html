@@ -1,14 +1,38 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<!--<img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">-->
+<div class="container d-flex flex-column">
 
-<div class="container">
-  <div class="d-flex mt-5 mb-5 flex-row align-items-center">
-    <a class="author" routerLink="/">
-      <img class="avatar mr-4" src="/assets/icon/favicon-96x96.png" alt="Azhong.work">
-      Azhong.work
-    </a>
-    <!--<a *ngFor="let link of links" [routerLink]="link" class="link"-->
-       <!--[ngClass]="{'active': currentUrl?.startsWith('/' + link) }">{{link}}</a>-->
+  <div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light pl-0 pr-0 pt-lg-5 pb-lg-5 pt-3 pb-4 bg-transparent">
+
+      <a class="author" routerLink="/">
+        <img class="navbar-brand avatar mr-2 mr-lg-4 p-0" src="/assets/icon/favicon-96x96.png"
+             alt="Azhong.work">
+        Azhong.work
+      </a>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse"
+              data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+              aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li></li>
+        </ul>
+        <a *ngFor="let link of links" [routerLink]="link" class="link ml-lg-5 ml-2 mt-3 mt-lg-0"
+           [ngClass]="{'active': currentUrl?.startsWith('/' + link) }">{{link}}</a>
+      </div>
+    </nav>
   </div>
-  <router-outlet></router-outlet>
+
+  <div style="flex: 1">
+    <router-outlet></router-outlet>
+  </div>
+
+  <div class="footer-link pt-5 pb-5">
+    <a href="mailto:zhongyanbenny@gmail.com">Email</a>
+    <a href="https://www.behance.net/" target="_blank" class="ml-3 mr-3 ml-lg-5 mr-lg-5">Behance</a>
+    <a href="https://dribbble.com/" target="_blank">Dribbble</a>
+    <a href="/" class="float-right">Azhong.work</a>
+  </div>
 </div>

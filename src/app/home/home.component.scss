@@ -1,10 +1,9 @@
 .category-link {
   display: flex;
   font-size: 14px;
-  padding: 5px 18px;
   color: #979797;
+  line-height: 1.8;
   background: #F5F5F5;
-  margin-right: 12px;
   border: 1px solid #979797;
   &:hover {
     text-decoration: none;
@@ -16,9 +15,8 @@
 }
 
 .masonry {
-  background: #EEE;
-  max-width: 100%;
-  margin-top: 90px;
+  width: 100%;
+  margin-top: 3rem;
 }
 
 .masonry .item,
@@ -41,14 +39,4 @@
 .masonry .item,
 .masonry .grid-sizer {
   color: white;
-  //float: left;
-  border: 1px solid #303c49;
-}
-
-.masonry .item-large {
-  background: #34b49d;
-}
-
-.masonry .item-normal {
-  background: #cd8055;
 }
