@@ -19,8 +19,11 @@
         <ul class="navbar-nav mr-auto">
           <li></li>
         </ul>
-        <a *ngFor="let link of links" [routerLink]="link" class="link ml-lg-5 ml-2 mt-3 mt-lg-0"
-           [ngClass]="{'active': currentUrl?.startsWith('/' + link) }">{{link}}</a>
+        <a *ngFor="let link of links"
+           [routerLink]="link.link"
+           [ngClass]="{'active': currentUrl?.startsWith('/' + link.label) }"
+           class="link ml-lg-5 ml-2 mt-3 mt-lg-0">{{link.label}}</a>
+
       </div>
     </nav>
   </div>

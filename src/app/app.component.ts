@@ -10,7 +10,12 @@ export class AppComponent {
 
   currentUrl: string;
 
-  links = ['home', 'shop', 'about', 'contact'];
+  links = [
+    {label: 'home', link: '/home'},
+    {label: 'shop', link: '/shop'},
+    {label: 'about', link: '/about'},
+    {label: 'contact', link: '/contact'},
+  ];
 
   constructor(private router: Router) {
     this.router.events.subscribe(value => {

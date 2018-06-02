@@ -4,7 +4,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {CommonModule} from '@angular/common';
 import {HttpClientModule} from '@angular/common/http';
 
-import {AppRoutingModule} from './app-routing.module';
+import {AppRoutingModule, externalUrlProvider} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {PostComponent} from './demo/post/post.component';
 import {FlexboxComponent} from './demo/flexbox/flexbox.component';
@@ -19,6 +19,7 @@ import {AboutComponent} from './about/about.component';
 import {ContactComponent} from './contact/contact.component';
 import { SeedComponent } from './seed/seed.component';
 import { DetailComponent } from './detail/detail.component';
+import {ActivatedRouteSnapshot} from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,9 @@ import { DetailComponent } from './detail/detail.component';
     BrowserAnimationsModule,
     AppRoutingModule,
   ],
-  providers: [UaService],
+  providers: [
+    UaService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
