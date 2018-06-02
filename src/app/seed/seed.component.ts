@@ -18,4 +18,8 @@ export class SeedComponent implements OnInit {
   ngOnInit() {
   }
 
+  onImgLoad(event: any) {
+    console.log(event);
+  }
+
 }

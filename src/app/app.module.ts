@@ -20,6 +20,7 @@ import {ContactComponent} from './contact/contact.component';
 import { SeedComponent } from './seed/seed.component';
 import { DetailComponent } from './detail/detail.component';
 import { LazyLoadImagesModule } from 'ngx-lazy-load-images';
+import { ImgAppearDirective } from './util/img-appear.directive';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { LazyLoadImagesModule } from 'ngx-lazy-load-images';
     AboutComponent,
     ContactComponent,
     SeedComponent,
-    DetailComponent
+    DetailComponent,
+    ImgAppearDirective
   ],
   imports: [
     LazyLoadImagesModule,
