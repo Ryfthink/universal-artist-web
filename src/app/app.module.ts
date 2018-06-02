@@ -22,6 +22,7 @@ import { DetailComponent } from './detail/detail.component';
 import { LazyLoadImagesModule } from 'ngx-lazy-load-images';
 import { ImgAppearDirective } from './util/img-appear.directive';
 import { TouchHoverDirective } from './util/touch-hover.directive';
+import {BackTopComponent} from './util/back-top/back-top.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { TouchHoverDirective } from './util/touch-hover.directive';
     ContactComponent,
     SeedComponent,
     DetailComponent,
+    BackTopComponent,
     ImgAppearDirective,
     TouchHoverDirective
   ],

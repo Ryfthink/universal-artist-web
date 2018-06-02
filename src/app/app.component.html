@@ -28,7 +28,7 @@
   </div>
 
   <div style="flex: 1">
-    <router-outlet></router-outlet>
+    <router-outlet (activate)="onActivate($event)"></router-outlet>
   </div>
 
   <div class="footer-link pt-5 pb-5">
@@ -37,4 +37,5 @@
     <a href="https://dribbble.com/" target="_blank">Dribbble</a>
     <a href="/" class="float-right">Azhong.work</a>
   </div>
+  <app-back-top></app-back-top>
 </div>
