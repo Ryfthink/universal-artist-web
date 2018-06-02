@@ -55,11 +55,10 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy, AfterVie
       .subscribe((result: Seed[]) => {
         this.needLayout = true;
         let tmp = [];
-        for (let i = 0; i < 20; i++) {
+        for (let i = 0; i < 5; i++) {
           tmp = tmp.concat(result);
         }
         this.data = tmp.shuffle();
-        this.data = result;
       });
   }
 

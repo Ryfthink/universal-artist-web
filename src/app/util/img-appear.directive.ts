@@ -9,8 +9,7 @@ export class ImgAppearDirective {
   }
 
   @HostListener('load')
-  onImgLoad(event: any) {
-    console.log('AAA', event);
+  onImgLoad() {
     this.render.setStyle(this.elementRef.nativeElement, 'padding', '0');
     this.render.setStyle(this.elementRef.nativeElement, 'opacity', '1');
   }
