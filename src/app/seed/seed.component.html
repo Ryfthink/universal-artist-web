@@ -1,7 +1,7 @@
 <div *ngIf="seed?.size == 'normal'" class="seed seed-normal">
   <div class="content">
     <div style="width: 100%; height: 100%">
-      <img class="border rounded" src="{{seed.img}}" alt="">
+      <img class="border rounded" [attr.data-src]="seed.img" alt="">
       <a class="seed-title border rounded" [routerLink]="['/detail', seed.id]">
         <strong>{{seed.title}}</strong><br>
         <span class="comment">{{seed.subTitle}}</span>
@@ -14,7 +14,7 @@
 <div *ngIf="seed?.size == 'large'" class="seed seed-large">
   <div class="content">
     <div style="width: 100%; height: 100%">
-      <img class="border rounded" src="{{seed.img}}" alt="">
+      <img class="border rounded" [attr.data-src]="seed.img" alt="">
       <a class="seed-title border rounded" [routerLink]="['/detail', seed.id]">
         <strong>{{seed.title}}</strong><br>
         <span class="comment">{{seed.subTitle}}</span>

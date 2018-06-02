@@ -19,7 +19,7 @@ import {AboutComponent} from './about/about.component';
 import {ContactComponent} from './contact/contact.component';
 import { SeedComponent } from './seed/seed.component';
 import { DetailComponent } from './detail/detail.component';
-import {ActivatedRouteSnapshot} from '@angular/router';
+import { LazyLoadImagesModule } from 'ngx-lazy-load-images';
 
 @NgModule({
   declarations: [
@@ -38,6 +38,7 @@ import {ActivatedRouteSnapshot} from '@angular/router';
     DetailComponent
   ],
   imports: [
+    LazyLoadImagesModule,
     HttpClientModule,
     CommonModule,
     BrowserModule,
