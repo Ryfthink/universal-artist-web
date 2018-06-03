@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, HostListener, Input, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, HostListener} from '@angular/core';
 
 // import * as jQuery from 'jquery';
 
@@ -9,10 +9,6 @@ import {AfterViewInit, Component, ElementRef, HostListener, Input, ViewChild} fr
 })
 export class BackTopComponent implements AfterViewInit {
 
-  @Input() position = 400;
-
-  @ViewChild('backTop') _selector: ElementRef;
-
   opacity = 0;
 
   ngAfterViewInit() {
@@ -21,23 +17,21 @@ export class BackTopComponent implements AfterViewInit {
 
   @HostListener('click')
   onClick(): boolean {
-    this.toTop();
+    this.smoothScroll();
     return true;
   }
 
-  toTop() {
-    (function smoothscroll() {
-      const currentScroll = document.documentElement.scrollTop || document.body.scrollTop;
-      if (currentScroll > 0) {
-        window.requestAnimationFrame(smoothscroll);
-        window.scrollTo(0, currentScroll - (currentScroll / 5));
-      }
-    })();
+  private smoothScroll() {
+    const currentScroll = document.documentElement.scrollTop || document.body.scrollTop;
+    if (currentScroll > 0) {
+      window.requestAnimationFrame(() => this.smoothScroll());
+      window.scrollTo(0, currentScroll - (currentScroll / 5));
+    }
   }
 
   @HostListener('window:scroll')
   onWindowScroll(): void {
-    this.opacity = window.scrollY > this.position ? 0.4 : 0;
+    this.opacity = window.scrollY > 400 ? 0.4 : 0;
   }
 }
 
