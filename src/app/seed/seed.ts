@@ -1,5 +1,5 @@
 export interface Seed {
-  category: 'brand' | 'illustration' | 'uiux';
+  category: Category;
   img: string;
   createTime: string;
   id: string;
@@ -7,3 +7,5 @@ export interface Seed {
   subTitle: string;
   size: 'normal' | 'large';
 }
+
+export type Category = '' | 'brand' | 'illustration' | 'uiux';

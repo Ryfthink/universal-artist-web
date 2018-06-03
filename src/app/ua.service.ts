@@ -1,43 +1,79 @@
 import {Injectable} from '@angular/core';
-import {Observable} from 'rxjs';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import {environment} from '../environments/environment';
+
+import {Category, Seed} from './seed/seed';
+
+import {Observable, of, zip} from 'rxjs';
+import {catchError, map, tap} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UaService {
 
+  private seedCache = {
+    'brand': [],
+    'illustration': [],
+    'uiux': []
+  };
+
   constructor(private http: HttpClient) {
   }
 
-  requestSeedList(category: string): Observable<any> {
-    const params = new HttpParams().set('timestamp', Date.now().toString());
-    return this.http.get(`${environment.domain}/config/${category}`, {params});
-    // .do(console.log)
-    //
-    // this.http.get('http://az-asset.septenary.cn/config/brand').subscribe(result => {
-    //   console.log('AAA', result);
-    // });
-    // return of([
-    //   {
-    //     category: category,
-    //     img: 'http://az-asset.septenary.cn/img/mpepj14qazd6l7uhpzrmh',
-    //     createTime: '201239123',
-    //     id: 'dx0123jliadf1019a09dfds9v',
-    //     title: 'God said',
-    //     subTitle: '华夏信仰中，上帝是天子、帝王、君主中的至上神',
-    //     size: 'normal',
-    //   } as Seed,
-    //   {
-    //     category: category,
-    //     img: 'http://az-asset.septenary.cn/img/m6qsyz6h2tbqw41cf5u848',
-    //     createTime: '201239123',
-    //     id: 'dx0123jliadf1019a09dfds9v',
-    //     title: 'UA艺术家',
-    //     subTitle: '为了造福当地社区民众，自己位于洛杉矶的由商用洗衣房改造的工作室转变成项目空间、艺术家驻地',
-    //     size: 'normal',
-    //   } as Seed,
-    // ]);
+  requestSeedList(category: Category): Observable<any> {
+    if (category === '') {
+      const result = [
+        ...this.seedCache.brand,
+        ...this.seedCache.illustration,
+        ...this.seedCache.uiux
+      ];
+      if (length > 0) {
+        return of(result);
+      } else {
+        return zip(
+          this.requestSeedList('brand'),
+          this.requestSeedList('illustration'),
+          this.requestSeedList('uiux'),
+        ).pipe(
+          map(v => [...v[0], ...v[1], ...v[2]]),
+          map(v => {
+            return v.shuffle().sort((a: Seed, b: Seed) => {
+              return new Date(b.createTime).getTime() - new Date(a.createTime).getTime();
+            });
+          })
+        );
+      }
+    } else {
+      const cache = this.seedCache ? this.seedCache[category] : null;
+      if (cache && cache.length > 0) {
+        return of(cache);
+      } else {
+        const params = new HttpParams().set('timestamp', Date.now().toString());
+        return this.http.get(`${environment.domain}/config/${category}`, {params})
+          .pipe(
+            tap((result: any[]) => {
+              console.log(`result ${category} list: `, result);
+              if (result) {
+                this.seedCache[category] = result;
+              }
+            }),
+            catchError(this.handleError('requestSeed', []))
+          );
+      }
+    }
+  }
+
+  /**
+   * Handle Http operation that failed.
+   * Let the app continue.
+   * @param operation - name of the operation that failed
+   * @param result - optional value to return as the observable result
+   */
+  private handleError<T>(operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+      console.error(error); // log to console instead
+      return of(result as T);
+    };
   }
 }

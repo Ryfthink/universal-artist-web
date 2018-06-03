@@ -3,7 +3,7 @@ import {AfterViewChecked, AfterViewInit, Component, ElementRef, OnDestroy, OnIni
 import {ActivatedRoute} from '@angular/router';
 
 import {UaService} from '../ua.service';
-import {Seed} from '../seed/seed';
+import {Category, Seed} from '../seed/seed';
 
 import * as Masonry from 'masonry-layout';
 
@@ -28,7 +28,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy, AfterVie
 
   public masonry: Masonry;
 
-  public category: string = null;
+  public category: Category = '';
 
   public links = [
     {category: '', label: 'All', link: '/home'},
@@ -44,8 +44,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy, AfterVie
 
   ngOnInit() {
     this.route.url.subscribe(segments => {
-      this.category = segments[1] ? segments[1].path : '';
-      console.log(this.category);
+      this.category = segments[1] ? segments[1].path as Category : '';
       this.requestData();
     });
   }
@@ -54,11 +53,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy, AfterVie
     this.service.requestSeedList(this.category)
       .subscribe((result: Seed[]) => {
         this.needLayout = true;
-        let tmp = [];
-        for (let i = 0; i < 5; i++) {
-          tmp = tmp.concat(result);
-        }
-        this.data = tmp.shuffle();
+        this.data = result;
       });
   }
 
