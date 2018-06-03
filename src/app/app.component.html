@@ -1,31 +1,30 @@
 <div class="container d-flex flex-column">
 
-  <div>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light pl-0 pr-0 pt-lg-5 pb-lg-5 pt-3 pb-4 bg-transparent">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light pl-0 pr-0 pt-lg-5 pb-lg-5 pt-3 pb-4 bg-transparent">
 
-      <a class="author" routerLink="/">
-        <img class="navbar-brand avatar mr-2 mr-lg-4 p-0" src="/assets/icon/favicon-96x96.png"
-             alt="Azhong.work">
-        Azhong.work
-      </a>
+    <a class="author" routerLink="/">
+      <img class="navbar-brand avatar mr-2 mr-lg-4 p-0" src="/assets/icon/favicon-96x96.png"
+           alt="Azhong.work">
+      Azhong.work
+    </a>
 
-      <button class="navbar-toggler" type="button" data-toggle="collapse"
-              data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-              aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+    <button class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li></li>
-        </ul>
-        <a *ngFor="let link of links"
-           [routerLink]="link"
-           [ngClass]="{'active': currentUrl?.startsWith('/' + link) }"
-           class="link ml-lg-5 ml-2 mt-3 mt-lg-0">{{link}}</a>
-      </div>
-    </nav>
-  </div>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <!--<ul class="navbar-nav mr-auto">-->
+        <!--<li></li>-->
+      <!--</ul>-->
+      <a class="mr-auto"></a>
+      <a *ngFor="let link of links"
+         [routerLink]="link"
+         [ngClass]="{'active': currentUrl?.startsWith('/' + link) }"
+         class="link ml-lg-5 ml-2 mt-3 mt-lg-0">{{link}}</a>
+    </div>
+  </nav>
 
   <div style="flex: 1">
     <router-outlet (activate)="onActivate($event)"></router-outlet>

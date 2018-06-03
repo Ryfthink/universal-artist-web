@@ -2,7 +2,7 @@
   position: relative;
   &:before {
     display: block;
-    content: " ";
+    content: "";
     width: 100%;
     padding-top: ($height / $width) * 100%;
   }
@@ -16,10 +16,6 @@
   }
 }
 
-.seed {
-
-}
-
 .seed-large {
   @include aspect-ratio(540, 960);
 }
@@ -28,7 +24,7 @@
   @include aspect-ratio(540, 400);
 }
 
-.seed img {
+.seed-img {
   height: 100%;
   width: 100%;
   object-fit: cover;
