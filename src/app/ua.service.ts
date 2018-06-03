@@ -38,7 +38,7 @@ export class UaService {
         ).pipe(
           map(v => [...v[0], ...v[1], ...v[2]]),
           map(v => {
-            return v.shuffle().sort((a: Seed, b: Seed) => {
+            return v.sort((a: Seed, b: Seed) => {
               return new Date(b.createTime).getTime() - new Date(a.createTime).getTime();
             });
           })
@@ -52,6 +52,11 @@ export class UaService {
         const params = new HttpParams().set('timestamp', Date.now().toString());
         return this.http.get(`${environment.domain}/config/${category}`, {params})
           .pipe(
+            map((v: any[]) => {
+              return v.sort((a: Seed, b: Seed) => {
+                return new Date(b.createTime).getTime() - new Date(a.createTime).getTime();
+              });
+            }),
             tap((result: any[]) => {
               console.log(`result ${category} list: `, result);
               if (result) {
@@ -69,7 +74,7 @@ export class UaService {
     return this.http.get(`${environment.domain}/md/${id}`, {responseType: 'text', params: params})
       .pipe(
         tap(console.log),
-        catchError(this.handleError('requestSeed', {}))
+        catchError(this.handleError('requestSeed', null))
       );
   }
 
