@@ -23,6 +23,7 @@ import { LazyLoadImagesModule } from 'ngx-lazy-load-images';
 import { ImgAppearDirective } from './util/img-appear.directive';
 import { TouchHoverDirective } from './util/touch-hover.directive';
 import {BackTopComponent} from './util/back-top/back-top.component';
+import { QiniuImgPipe } from './util/qiniu-img.pipe';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import {BackTopComponent} from './util/back-top/back-top.component';
     DetailComponent,
     BackTopComponent,
     ImgAppearDirective,
-    TouchHoverDirective
+    TouchHoverDirective,
+    QiniuImgPipe
   ],
   imports: [
     LazyLoadImagesModule,

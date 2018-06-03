@@ -1,7 +1,7 @@
 <div *ngIf="seed?.size == 'normal'" class="seed seed-normal">
   <div class="content">
     <div class="border rounded w-100 h-100">
-      <img class="rounded" [attr.data-src]="seed.img" alt="" appImgAppear>
+      <img class="rounded" [attr.data-src]="seed.img | qiniuImg: seed.size" alt="" appImgAppear>
       <a class="seed-title border rounded" [routerLink]="['/detail', seed.id]" appTouchHover>
         <strong>{{seed.title}}</strong><br>
         <span class="comment">{{seed.subTitle}}</span>
@@ -14,7 +14,7 @@
 <div *ngIf="seed?.size == 'large'" class="seed seed-large">
   <div class="content">
     <div class="border rounded w-100 h-100">
-      <img class="rounded" [attr.data-src]="seed.img" alt="" appImgAppear>
+      <img class="rounded" [attr.data-src]="seed.img | qiniuImg: seed.size" alt="" appImgAppear>
       <a class="seed-title border rounded" [routerLink]="['/detail', seed.id]" appTouchHover>
         <strong>{{seed.title}}</strong><br>
         <span class="comment">{{seed.subTitle}}</span>
