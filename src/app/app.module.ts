@@ -4,7 +4,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {CommonModule} from '@angular/common';
 import {HttpClientModule} from '@angular/common/http';
 
-import {AppRoutingModule, externalUrlProvider} from './app-routing.module';
+import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {PostComponent} from './demo/post/post.component';
 import {FlexboxComponent} from './demo/flexbox/flexbox.component';
@@ -17,14 +17,12 @@ import {UaService} from './ua.service';
 import {ShopComponent} from './shop/shop.component';
 import {AboutComponent} from './about/about.component';
 import {ContactComponent} from './contact/contact.component';
-import { SeedComponent } from './seed/seed.component';
-import { DetailComponent } from './detail/detail.component';
-import { LazyLoadImagesModule } from 'ngx-lazy-load-images';
-import { ImgAppearDirective } from './util/img-appear.directive';
-import { TouchHoverDirective } from './util/touch-hover.directive';
+import {SeedComponent} from './seed/seed.component';
+import {LazyLoadImagesModule} from 'ngx-lazy-load-images';
+import {ImgAppearDirective} from './util/img-appear.directive';
+import {TouchHoverDirective} from './util/touch-hover.directive';
 import {BackTopComponent} from './util/back-top/back-top.component';
-import { QiniuImgPipe } from './util/qiniu-img.pipe';
-import {MarkdownModule} from './detail/markdown/markdown.module';
+import {QiniuImgPipe} from './util/qiniu-img.pipe';
 
 @NgModule({
   declarations: [
@@ -40,7 +38,6 @@ import {MarkdownModule} from './detail/markdown/markdown.module';
     AboutComponent,
     ContactComponent,
     SeedComponent,
-    DetailComponent,
     BackTopComponent,
     ImgAppearDirective,
     TouchHoverDirective,
@@ -53,7 +50,6 @@ import {MarkdownModule} from './detail/markdown/markdown.module';
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    MarkdownModule.forRoot()
   ],
   providers: [
     UaService,

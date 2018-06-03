@@ -1,19 +1,15 @@
-import {InjectionToken, NgModule} from '@angular/core';
-import {ActivatedRouteSnapshot, RouterModule, Routes} from '@angular/router';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 import {Waterfall2Component} from './demo/waterfall2/waterfall2.component';
 import {HomeComponent} from './home/home.component';
 import {ContactComponent} from './contact/contact.component';
-import {DetailComponent} from './detail/detail.component';
 import {ShopGuard} from './shop/shop.guard';
 import {ShopComponent} from './shop/shop.component';
-
-export const externalUrlProvider = new InjectionToken('externalUrlRedirectResolver');
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
+    component: HomeComponent
   },
   {
     path: 'home',
@@ -32,8 +28,8 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'detail/:id',
-    component: DetailComponent
+    path: 'content',
+    loadChildren: './content/content.module#ContentModule',
   },
   {
     path: 'waterfall2',
@@ -62,14 +58,6 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
-  providers: [
-    {
-      provide: externalUrlProvider,
-      useValue: (route: ActivatedRouteSnapshot) => {
-        // todo
-      },
-    }
-  ]
 })
 export class AppRoutingModule {
 }

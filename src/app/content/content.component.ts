@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
-  selector: 'app-detail',
-  templateUrl: './detail.component.html',
-  styleUrls: ['./detail.component.scss']
+  selector: 'app-content',
+  templateUrl: './content.component.html',
+  styleUrls: ['./content.component.scss']
 })
-export class DetailComponent implements OnInit {
+export class ContentComponent implements OnInit {
 
   content = `
 Porifle
@@ -55,7 +55,8 @@ ELK技术栈实现的分布式 志系统，对 TapTap 客户端的 志做收集�
 
   `;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }
