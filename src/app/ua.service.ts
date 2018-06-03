@@ -64,6 +64,15 @@ export class UaService {
     }
   }
 
+  requestSeedContent(id: string): Observable<any> {
+    const params = new HttpParams().set('timestamp', Date.now().toString());
+    return this.http.get(`${environment.domain}/md/${id}`, {responseType: 'text', params: params})
+      .pipe(
+        tap(console.log),
+        catchError(this.handleError('requestSeed', {}))
+      );
+  }
+
   /**
    * Handle Http operation that failed.
    * Let the app continue.

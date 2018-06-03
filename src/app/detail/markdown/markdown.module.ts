@@ -1,0 +1,22 @@
+import {CommonModule} from '@angular/common';
+import {ModuleWithProviders, NgModule} from '@angular/core';
+import {MarkdownComponent} from './markdown.component';
+import {MarkdownService} from './markdown.service';
+import {MarkdownConfig} from './markdown.config';
+import {HttpClientModule} from '@angular/common/http';
+
+@NgModule({
+  imports: [CommonModule, HttpClientModule],
+  declarations: [MarkdownComponent],
+  providers: [MarkdownService],
+  exports: [MarkdownComponent],
+  entryComponents: [MarkdownComponent]
+})
+export class MarkdownModule {
+  public static forRoot(): ModuleWithProviders {
+    return {
+      ngModule: MarkdownModule,
+      providers: [MarkdownConfig]
+    };
+  }
+}

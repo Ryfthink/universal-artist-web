@@ -2,7 +2,6 @@ import {InjectionToken, NgModule} from '@angular/core';
 import {ActivatedRouteSnapshot, RouterModule, Routes} from '@angular/router';
 import {Waterfall2Component} from './demo/waterfall2/waterfall2.component';
 import {HomeComponent} from './home/home.component';
-import {AboutComponent} from './about/about.component';
 import {ContactComponent} from './contact/contact.component';
 import {DetailComponent} from './detail/detail.component';
 import {ShopGuard} from './shop/shop.guard';

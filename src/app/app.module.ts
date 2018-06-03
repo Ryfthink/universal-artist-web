@@ -24,6 +24,7 @@ import { ImgAppearDirective } from './util/img-appear.directive';
 import { TouchHoverDirective } from './util/touch-hover.directive';
 import {BackTopComponent} from './util/back-top/back-top.component';
 import { QiniuImgPipe } from './util/qiniu-img.pipe';
+import {MarkdownModule} from './detail/markdown/markdown.module';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { QiniuImgPipe } from './util/qiniu-img.pipe';
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
+    MarkdownModule.forRoot()
   ],
   providers: [
     UaService,
