@@ -4,7 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --host 0.0.0.0 --port 4300",
-    "build": "ng build --prod --aot",
+    "build": "ng build --prod --aot && npm run cp404-gp",
+    "cp404-gp": "cp ./404-for-github-pages.html ./dist/universal-artist-web/404.html",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
