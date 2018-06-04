@@ -9,8 +9,8 @@
   border-radius: 50%;
   transition: 0.35s ease-in-out;
   position: fixed;
-  right: 80px;
-  bottom: 80px;
+  right: 0;
+  bottom: 0;
   &:hover {
     opacity: 0.8;
     svg #arrow {
