@@ -1,11 +1,15 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {UaService} from '../ua.service';
 
 @Component({
+  encapsulation: ViewEncapsulation.None,
   selector: 'app-content',
   templateUrl: './content.component.html',
-  styleUrls: ['./content.component.scss']
+  styleUrls: [
+    './content.component.scss',
+    './content.github.scss',
+  ]
 })
 export class ContentComponent implements OnInit {
 
