@@ -1,21 +1,23 @@
-<div *ngIf="seed?.size == 'normal'" class="seed-normal">
-  <div class="content border rounded" style="overflow: hidden">
-    <img class="w-100 h-100 seed-img" [attr.data-src]="seed.img | qiniuImg: seed.size" alt="" appImgAppear>
-    <a class="seed-title" [routerLink]="['/content', seed.id]" appTouchHover>
-      <strong>{{seed.title}}</strong><br>
-      <span class="comment">{{seed.subTitle}}</span>
-      <em class="timestamp">{{seed.createTime}}</em>
-    </a>
-  </div>
+<div *ngIf="seed?.size == 'normal'" class="seed-root-normal">
+  <img class="content content-img w-100 h-100 border rounded"
+       [attr.data-src]="seed.img | qiniuImg: seed.size" src="" alt=""
+       appImgAppear>
+  <a class="content content-mask border rounded "
+     [routerLink]="['/content', seed.id]" appTouchHover>
+    <strong>{{seed.title}}</strong><br>
+    <span class="comment">{{seed.subTitle}}</span>
+    <em class="timestamp">{{seed.createTime}}</em>
+  </a>
 </div>
 
-<div *ngIf="seed?.size == 'large'" class="seed-large">
-  <div class="content border rounded " style="overflow: hidden">
-    <img class="w-100 h-100 seed-img" [attr.data-src]="seed.img | qiniuImg: seed.size" alt="" appImgAppear>
-    <a class="seed-title" [routerLink]="['/content', seed.id]" appTouchHover>
-      <strong>{{seed.title}}</strong><br>
-      <span class="comment">{{seed.subTitle}}</span>
-      <em class="timestamp">{{seed.createTime}}</em>
-    </a>
-  </div>
+<div *ngIf="seed?.size == 'large'" class="seed-root-large">
+  <img class="content content-img w-100 h-100 border rounded"
+       [attr.data-src]="seed.img | qiniuImg: seed.size" src="" alt=""
+       appImgAppear>
+  <a class="content content-mask border rounded "
+     [routerLink]="['/content', seed.id]" appTouchHover>
+    <strong>{{seed.title}}</strong><br>
+    <span class="comment">{{seed.subTitle}}</span>
+    <em class="timestamp">{{seed.createTime}}</em>
+  </a>
 </div>

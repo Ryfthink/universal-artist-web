@@ -16,23 +16,21 @@
   }
 }
 
-.seed-large {
+.seed-root-large {
   @include aspect-ratio(540, 960);
 }
 
-.seed-normal {
+.seed-root-normal {
   @include aspect-ratio(540, 400);
 }
 
-.seed-img {
-  height: 100%;
-  width: 100%;
+.content-img {
   object-fit: cover;
   opacity: 0;
   transition: 0.35s ease-in-out;;
 }
 
-.seed-title {
+.content-mask{
   opacity: 0;
   filter: alpha(opacity=0);
   position: absolute;
