@@ -78,16 +78,34 @@ export class UaService {
       );
   }
 
-  /**
-   * Handle Http operation that failed.
-   * Let the app continue.
-   * @param operation - name of the operation that failed
-   * @param result - optional value to return as the observable result
-   */
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
-      console.error(error); // log to console instead
+      console.error(operation, error);
       return of(result as T);
     };
+  }
+
+  findNav(id: string): Observable<{ previous: Seed; next: Seed }> {
+    return Observable.create(obs => {
+      let result = null;
+      for (const k in this.seedCache) {
+        const list = this.seedCache[k].sort((a: Seed, b: Seed) => {
+          return new Date(b.createTime).getTime() - new Date(a.createTime).getTime();
+        });
+        list.forEach((seed: Seed, index: number) => {
+          if (seed.id === id) {
+            result = {
+              previous: list[index - 1],
+              next: list[index + 1]
+            };
+          }
+        });
+        if (result) {
+          break;
+        }
+      }
+      obs.next(result);
+      obs.complete();
+    });
   }
 }
