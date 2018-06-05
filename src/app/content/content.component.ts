@@ -3,17 +3,16 @@ import {ActivatedRoute} from '@angular/router';
 import {UaService} from '../ua.service';
 
 @Component({
-  encapsulation: ViewEncapsulation.None,
+  encapsulation: ViewEncapsulation.Emulated,
   selector: 'app-content',
   templateUrl: './content.component.html',
-  styleUrls: [
-    './content.component.scss',
-    './content.github.scss',
-  ]
+  styleUrls: ['./content.component.scss']
 })
 export class ContentComponent implements OnInit {
 
   content: '';
+
+  showNav = false;
 
   constructor(private router: ActivatedRoute, private service: UaService) {
   }
@@ -24,6 +23,9 @@ export class ContentComponent implements OnInit {
       this.service.requestSeedContent(id)
         .subscribe(content => {
           this.content = content || 'Azhong 一定是偷懒忘记更新这篇文章了...';
+          setTimeout(() => {
+            this.showNav = true;
+          });
         });
     });
   }

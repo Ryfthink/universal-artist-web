@@ -1,3 +1,9 @@
-<article class="markdown-body">
-  <div Markdown [data]="content"></div>
+<article class="flex-fill">
+  <app-markdown-github [text]="content"></app-markdown-github>
 </article>
+
+<section class="article-nav d-flex justify-content-between" *ngIf="showNav">
+  <a href="mailto:zhongyanbenny@gmail.com">Previous Work</a>
+  <a routerLink="/home">All Works</a>
+  <a href="https://dribbble.com/" target="_blank">Next Work</a>
+</section>
