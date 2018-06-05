@@ -28,7 +28,7 @@ export class UaService {
         ...this.seedCache.illustration,
         ...this.seedCache.uiux
       ];
-      if (length > 0) {
+      if (result.length > 0) {
         return of(result);
       } else {
         return zip(
