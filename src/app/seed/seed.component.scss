@@ -18,10 +18,12 @@
 
 .seed-root-large {
   @include aspect-ratio(540, 960);
+  overflow: hidden;
 }
 
 .seed-root-normal {
   @include aspect-ratio(540, 400);
+  overflow: hidden;
 }
 
 .content-img {
