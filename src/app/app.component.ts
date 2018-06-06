@@ -23,4 +23,9 @@ export class AppComponent {
   onActivate(event: any) {
     window.scrollTo(0, 0);
   }
+
+  onNavClick(link: string) {
+    this.router.navigate([link]).then(() => {
+    });
+  }
 }

@@ -16,16 +16,17 @@
 
 .link {
   text-transform: capitalize;
-  color: #A0A0A0;
+  color: #A0A0A0 !important;
   display: flex;
   transition: 0.35s ease-in-out;
+  cursor: pointer;
   &:hover {
-    color: #4A4A4A;
+    color: #4A4A4A !important;
     //transform: scale(1.1, 1.1);
     text-decoration: none;
   }
   &.active {
-    color: #4A4A4A;
+    color: #4A4A4A !important;
   }
 }
 
