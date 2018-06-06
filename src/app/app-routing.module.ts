@@ -1,6 +1,5 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {Waterfall2Component} from './demo/waterfall2/waterfall2.component';
 import {HomeComponent} from './home/home.component';
 import {ContactComponent} from './contact/contact.component';
 import {ShopGuard} from './shop/shop.guard';
@@ -30,10 +29,6 @@ const routes: Routes = [
   {
     path: 'content',
     loadChildren: './content/content.module#ContentModule',
-  },
-  {
-    path: 'waterfall2',
-    component: Waterfall2Component,
   },
   {
     path: 'shop',
