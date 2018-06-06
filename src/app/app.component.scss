@@ -9,7 +9,6 @@
 
 .author {
   font-size: 24px;
-  flex: 1;
   color: #4A4A4A;
   text-decoration: none;
 }
@@ -34,11 +33,11 @@
   width: 100%;
   max-width: 1024px;
   margin: 0 auto;
-}
 
-.footer-link a {
-  color: #4A4A4A;
-  size: 20px;
+  a {
+    color: #4A4A4A;
+    size: 20px;
+  }
 }
 
 @media (min-width: 1200px) {

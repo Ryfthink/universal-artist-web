@@ -28,11 +28,6 @@ export class Toc {
 @Component({
   selector: 'markdown,[Markdown]',
   template: '<ng-content></ng-content>',
-  styles: [
-      `.token.operator, .token.entity, .token.url, .language-css .token.string, .style .token.string {
-      background: none;
-    }`
-  ]
 })
 export class MarkdownComponent implements OnInit, AfterViewInit {
   private _path: string;
@@ -141,7 +136,7 @@ export class MarkdownComponent implements OnInit, AfterViewInit {
     if (!raw) {
       return '';
     }
-    if (this._ext === 'md' || !this.path) {
+    if (this._ext === 'md' || !this._path) {
       let isCodeBlock = false;
       return raw.split('\n').map((line: string) => {
         if (this.trimLeft(line).substring(0, 3) === '```') {

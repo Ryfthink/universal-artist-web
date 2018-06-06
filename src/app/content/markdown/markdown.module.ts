@@ -4,13 +4,13 @@ import {MarkdownComponent} from './markdown.component';
 import {MarkdownService} from './markdown.service';
 import {MarkdownConfig} from './markdown.config';
 import {HttpClientModule} from '@angular/common/http';
+import {GithubComponent} from './github/github.component';
 
 @NgModule({
   imports: [CommonModule, HttpClientModule],
-  declarations: [MarkdownComponent],
+  declarations: [MarkdownComponent, GithubComponent],
   providers: [MarkdownService],
-  exports: [MarkdownComponent],
-  entryComponents: [MarkdownComponent]
+  exports: [MarkdownComponent, GithubComponent],
 })
 export class MarkdownModule {
   public static forRoot(): ModuleWithProviders {
