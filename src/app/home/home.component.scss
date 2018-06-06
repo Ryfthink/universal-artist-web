@@ -4,9 +4,11 @@
   color: #979797;
   line-height: 1.8;
   background: #F5F5F5;
-  border: 1px solid #979797;
+  border: 1px solid transparent;
+  transition: 0.35s ease-in-out;
   &:hover {
     text-decoration: none;
+    background-color: #dadada !important;
   }
   &.active {
     color: white;
