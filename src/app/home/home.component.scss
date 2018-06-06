@@ -6,13 +6,10 @@
   background: #F5F5F5;
   border: 1px solid transparent;
   transition: 0.35s ease-in-out;
-  &:hover {
+  &:hover, &:active, &.active {
     text-decoration: none;
-    background-color: #dadada !important;
-  }
-  &.active {
     color: white;
-    background: #4A4A4A;
+    background-color: #4A4A4A !important;
   }
 }
 
