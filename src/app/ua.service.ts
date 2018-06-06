@@ -29,7 +29,7 @@ export class UaService {
         ...this.seedCache.uiux
       ];
       if (result.length > 0) {
-        return of(result);
+        return of(this.sortSeedListByDate(result));
       } else {
         return zip(
           this.requestSeedList('brand'),
@@ -37,11 +37,7 @@ export class UaService {
           this.requestSeedList('uiux'),
         ).pipe(
           map(v => [...v[0], ...v[1], ...v[2]]),
-          map(v => {
-            return v.sort((a: Seed, b: Seed) => {
-              return new Date(b.createTime).getTime() - new Date(a.createTime).getTime();
-            });
-          })
+          map(v => this.sortSeedListByDate(v))
         );
       }
     } else {
@@ -52,11 +48,7 @@ export class UaService {
         const params = new HttpParams().set('timestamp', Date.now().toString());
         return this.http.get(`${environment.domain}/config/${category}`, {params})
           .pipe(
-            map((v: any[]) => {
-              return v.sort((a: Seed, b: Seed) => {
-                return new Date(b.createTime).getTime() - new Date(a.createTime).getTime();
-              });
-            }),
+            map(v => this.sortSeedListByDate(v)),
             tap((result: any[]) => {
               console.log(`result ${category} list: `, result);
               if (result) {
@@ -85,13 +77,17 @@ export class UaService {
     };
   }
 
+  private sortSeedListByDate(list: Seed[]): Seed[] {
+    return list.sort((a: Seed, b: Seed) => {
+      return new Date(b.createTime).getTime() - new Date(a.createTime).getTime();
+    });
+  }
+
   findNav(id: string): Observable<{ previous: Seed; next: Seed }> {
     return Observable.create(obs => {
       let result = null;
       for (const k in this.seedCache) {
-        const list = this.seedCache[k].sort((a: Seed, b: Seed) => {
-          return new Date(b.createTime).getTime() - new Date(a.createTime).getTime();
-        });
+        const list = this.sortSeedListByDate(this.seedCache[k]);
         list.forEach((seed: Seed, index: number) => {
           if (seed.id === id) {
             result = {
