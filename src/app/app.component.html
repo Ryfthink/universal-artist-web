@@ -20,13 +20,12 @@
       <!--</ul>-->
       <a class="mr-auto"></a>
       <a *ngFor="let link of links"
-         [ngClass]="{'active': currentUrl?.startsWith('/' + link) }"
+         [ngClass]="{'active': currentUrl?.startsWith('/' + link) || (currentUrl == '/' && link == 'home') }"
          data-toggle="collapse" data-target=".navbar-collapse.show"
          (click)="onNavClick(link)"
          class="link ml-lg-5 ml-2 mt-3 mt-lg-0">{{link}}</a>
     </div>
   </nav>
-
   <div class="flex-fill d-flex flex-column">
     <router-outlet (activate)="onActivate($event)"></router-outlet>
   </div>

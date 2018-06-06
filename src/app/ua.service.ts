@@ -48,7 +48,7 @@ export class UaService {
         const params = new HttpParams().set('timestamp', Date.now().toString());
         return this.http.get(`${environment.domain}/config/${category}`, {params})
           .pipe(
-            map(v => this.sortSeedListByDate(v)),
+            map(v => this.sortSeedListByDate(v as Seed[])),
             tap((result: any[]) => {
               console.log(`result ${category} list: `, result);
               if (result) {
