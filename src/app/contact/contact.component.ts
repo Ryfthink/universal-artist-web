@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Util} from '../util/util';
 
 @Component({
   selector: 'app-contact',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactComponent implements OnInit {
 
-  constructor() { }
+  toEmail = 'zhongyanbenny@gmail.com';
+  weixin = '15216666069';
+
+  fromEmail = '';
+  subject = '';
+  body = '';
+
+  constructor() {
+  }
 
   ngOnInit() {
   }
 
+  onSendEmailClick() {
+    const url = Util.getMailtoUrl(this.toEmail, this.subject, this.body);
+    window.open(url, '_self');
+  }
 }

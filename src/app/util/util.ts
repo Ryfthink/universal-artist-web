@@ -6,4 +6,20 @@ export class Util {
       return false;
     }
   }
+
+  static getMailtoUrl(to, subject, body) {
+    const args = [];
+    if (typeof subject !== 'undefined') {
+      args.push('subject=' + encodeURIComponent(subject));
+    }
+    if (typeof body !== 'undefined') {
+      args.push('body=' + encodeURIComponent(body));
+    }
+
+    let url = 'mailto:' + encodeURIComponent(to);
+    if (args.length > 0) {
+      url += '?' + args.join('&');
+    }
+    return url;
+  }
 }

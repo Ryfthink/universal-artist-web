@@ -17,6 +17,7 @@ import {ImgAppearDirective} from './util/img-appear.directive';
 import {TouchHoverDirective} from './util/touch-hover.directive';
 import {BackTopComponent} from './util/back-top/back-top.component';
 import {QiniuImgPipe} from './util/qiniu-img.pipe';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import {QiniuImgPipe} from './util/qiniu-img.pipe';
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
+    FormsModule,
   ],
   providers: [
     UaService,
