@@ -4,7 +4,6 @@ import {HomeComponent} from './home/home.component';
 import {ContactComponent} from './contact/contact.component';
 import {ShopGuard} from './shop/shop.guard';
 import {ShopComponent} from './shop/shop.component';
-import {AboutComponent} from './about/about.component';
 
 const routes: Routes = [
   {
@@ -38,7 +37,7 @@ const routes: Routes = [
   },
   {
     path: 'about',
-    component: AboutComponent
+    loadChildren: './about/about.module#AboutModule',
   },
   {
     path: 'contact',

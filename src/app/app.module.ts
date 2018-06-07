@@ -9,7 +9,6 @@ import {AppComponent} from './app.component';
 import {HomeComponent} from './home/home.component';
 import {UaService} from './ua.service';
 import {ShopComponent} from './shop/shop.component';
-import {AboutComponent} from './about/about.component';
 import {ContactComponent} from './contact/contact.component';
 import {SeedComponent} from './seed/seed.component';
 import {LazyLoadImagesModule} from 'ngx-lazy-load-images';
@@ -24,7 +23,6 @@ import {FormsModule} from '@angular/forms';
     AppComponent,
     HomeComponent,
     ShopComponent,
-    AboutComponent,
     ContactComponent,
     SeedComponent,
     BackTopComponent,

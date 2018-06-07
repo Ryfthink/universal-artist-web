@@ -1,19 +1,19 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 
-import {ContentRoutingModule} from './content-routing.module';
 import {HttpClientModule} from '@angular/common/http';
-import {ContentComponent} from './content.component';
 import {MarkdownModule} from '../markdown/markdown.module';
+import {AboutRoutingModule} from './about-routing.module';
+import {AboutComponent} from './about.component';
 
 @NgModule({
   imports: [
     HttpClientModule,
     CommonModule,
     MarkdownModule,
-    ContentRoutingModule
+    AboutRoutingModule
   ],
-  declarations: [ContentComponent]
+  declarations: [AboutComponent]
 })
-export class ContentModule {
+export class AboutModule {
 }

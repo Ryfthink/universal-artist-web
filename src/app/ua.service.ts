@@ -55,7 +55,7 @@ export class UaService {
                 this.seedCache[category] = result;
               }
             }),
-            catchError(this.handleError('requestSeed', []))
+            catchError(this.handleError('requestSeedList', []))
           );
       }
     }
@@ -66,7 +66,16 @@ export class UaService {
     return this.http.get(`${environment.domain}/md/${id}`, {responseType: 'text', params: params})
       .pipe(
         tap(console.log),
-        catchError(this.handleError('requestSeed', null))
+        catchError(this.handleError('requestSeedContent', null))
+      );
+  }
+
+  reqestAboutMe(): Observable<any> {
+    const params = new HttpParams().set('timestamp', Date.now().toString());
+    return this.http.get(`${environment.domain}/md/about-me-content`, {responseType: 'text', params: params})
+      .pipe(
+        tap(console.log),
+        catchError(this.handleError('reqestAboutMe', null))
       );
   }
 

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {UaService} from '../ua.service';
 
 @Component({
   selector: 'app-about',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutComponent implements OnInit {
 
-  constructor() { }
+  content: '';
+
+  constructor(private service: UaService) {
+  }
 
   ngOnInit() {
+    this.service.reqestAboutMe()
+      .subscribe(content => {
+        this.content = content || '';
+      });
   }
 
 }
