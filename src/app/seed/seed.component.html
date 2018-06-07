@@ -5,7 +5,7 @@
   <a class="content content-mask" [routerLink]="['/content', seed.id]" appTouchHover>
     <strong>{{seed.title}}</strong><br>
     <span class="comment">{{seed.subTitle}}</span>
-    <em class="timestamp">{{seed.createTime}}</em>
+    <em class="timestamp">{{seed.createTime | date: 'yyyy-MM-dd'}}</em>
   </a>
 </div>
 <div *ngIf="seed?.size == 'large'" class="seed-root-large border rounded">
@@ -15,6 +15,6 @@
   <a class="content content-mask" [routerLink]="['/content', seed.id]" appTouchHover>
     <strong>{{seed.title}}</strong><br>
     <span class="comment">{{seed.subTitle}}</span>
-    <em class="timestamp">{{seed.createTime}}</em>
+    <em class="timestamp">{{seed.createTime | date: 'yyyy-MM-dd'}}</em>
   </a>
 </div>
