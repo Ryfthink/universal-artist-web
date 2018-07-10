@@ -6,6 +6,7 @@ import {Category, Seed} from './seed/seed';
 
 import {Observable, of, zip} from 'rxjs';
 import {catchError, map, tap} from 'rxjs/operators';
+import {Util} from './util/util';
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +20,7 @@ export class UaService {
   };
 
   constructor(private http: HttpClient) {
+    Util.enableSocialistValuesEffect();
   }
 
   requestSeedList(category: Category): Observable<any> {
