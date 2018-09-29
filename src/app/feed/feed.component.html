@@ -2,7 +2,7 @@
   <a *ngFor="let link of links"
      routerLink="{{link.link}}"
      class="category-link pl-2 pr-2 mr-2 mr-lg-3 mb-2"
-     [ngClass]="{'active': category == link.category}">
+     [ngClass]="{'active': tag == link.tag}">
     {{link.label}}
   </a>
 </div>

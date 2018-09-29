@@ -2,7 +2,6 @@ import {AfterViewChecked, AfterViewInit, Component, ElementRef, OnDestroy, OnIni
 import {ActivatedRoute} from '@angular/router';
 import {AppService} from '../app.service';
 import {FeedModel} from './feed.model';
-import {Category} from '../seed/seed';
 
 import * as Masonry from 'masonry-layout';
 
@@ -25,15 +24,15 @@ export class FeedComponent implements OnInit, AfterViewInit, OnDestroy, AfterVie
 
   private needLayout = false;
 
-  public masonry: Masonry;
+  private masonry: Masonry;
 
-  public category: Category = '';
+  public tag = '';
 
   public links = [
-    {category: '', label: 'All', link: '/feed'},
-    {category: 'brand', label: 'Branding', link: '/feed/brand'},
-    {category: 'illustration', label: 'Illustration', link: '/feed/illustration'},
-    {category: 'uiux', label: 'UI UX', link: '/feed/uiux'},
+    {tag: '', label: 'All', link: '/feed'},
+    {tag: 'brand', label: 'Branding', link: '/feed/brand'},
+    {tag: 'illustration', label: 'Illustration', link: '/feed/illustration'},
+    {tag: 'uiux', label: 'UI UX', link: '/feed/uiux'},
   ];
 
   data?: FeedModel[];
