@@ -9,8 +9,8 @@
 
 <div class="masonry mt-3 mt-md-5" lazy-load-images #grid>
   <div class="grid-sizer"></div>
-  <app-seed
-    *ngFor="let item of data" [seed]="item"
+  <app-feed-item
+    *ngFor="let item of data" [feed]="item"
     class="item pl-0 pr-0 pl-md-2 pr-md-2 pb-3">
-  </app-seed>
+  </app-feed-item>
 </div>

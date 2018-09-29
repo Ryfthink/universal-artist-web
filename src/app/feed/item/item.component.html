@@ -1,0 +1,20 @@
+<div *ngIf="feed?.size == 'normal'" class="seed-root-normal border rounded">
+  <img class="content content-img w-100 h-100"
+       [attr.data-src]="feed.img | qiniuImg: feed.size" src="" alt=""
+       appImgAppear>
+  <a class="content content-mask" [routerLink]="['/content', feed.id]" appTouchHover>
+    <strong>{{feed.title}}</strong><br>
+    <span class="comment">{{feed.subTitle}}</span>
+    <em class="timestamp">{{feed.createTime | date: 'yyyy-MM-dd'}}</em>
+  </a>
+</div>
+<div *ngIf="feed?.size == 'large'" class="seed-root-large border rounded">
+  <img class="content content-img w-100 h-100"
+       [attr.data-src]="feed.img | qiniuImg: feed.size" src="" alt=""
+       appImgAppear>
+  <a class="content content-mask" [routerLink]="['/content', feed.id]" appTouchHover>
+    <strong>{{feed.title}}</strong><br>
+    <span class="comment">{{feed.subTitle}}</span>
+    <em class="timestamp">{{feed.createTime | date: 'yyyy-MM-dd'}}</em>
+  </a>
+</div>

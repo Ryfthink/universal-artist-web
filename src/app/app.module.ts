@@ -6,29 +6,29 @@ import {HttpClientModule} from '@angular/common/http';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-import {HomeComponent} from './home/home.component';
-import {UaService} from './ua.service';
 import {ShopComponent} from './shop/shop.component';
 import {ContactComponent} from './contact/contact.component';
-import {SeedComponent} from './seed/seed.component';
 import {LazyLoadImagesModule} from 'ngx-lazy-load-images';
 import {ImgAppearDirective} from './util/img-appear.directive';
 import {TouchHoverDirective} from './util/touch-hover.directive';
 import {BackTopComponent} from './util/back-top/back-top.component';
 import {QiniuImgPipe} from './util/qiniu-img.pipe';
 import {FormsModule} from '@angular/forms';
+import {FeedComponent} from './feed/feed.component';
+import { ItemComponent } from './feed/item/item.component';
+import {AppService} from './app.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
     ShopComponent,
     ContactComponent,
-    SeedComponent,
     BackTopComponent,
     ImgAppearDirective,
     TouchHoverDirective,
-    QiniuImgPipe
+    QiniuImgPipe,
+    FeedComponent,
+    ItemComponent
   ],
   imports: [
     LazyLoadImagesModule,
@@ -40,7 +40,7 @@ import {FormsModule} from '@angular/forms';
     FormsModule,
   ],
   providers: [
-    UaService,
+    AppService,
   ],
   bootstrap: [AppComponent]
 })

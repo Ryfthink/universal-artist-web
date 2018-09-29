@@ -1,30 +1,24 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {HomeComponent} from './home/home.component';
 import {ContactComponent} from './contact/contact.component';
 import {ShopGuard} from './shop/shop.guard';
 import {ShopComponent} from './shop/shop.component';
+import {FeedComponent} from './feed/feed.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent
+    pathMatch: 'full',
+    redirectTo: 'feed',
   },
   {
-    path: 'home',
-    component: HomeComponent
+    pathMatch: 'full',
+    path: 'feed',
+    component: FeedComponent,
   },
   {
-    path: 'home/illustration',
-    component: HomeComponent
-  },
-  {
-    path: 'home/brand',
-    component: HomeComponent
-  },
-  {
-    path: 'home/uiux',
-    component: HomeComponent
+    path: 'feed/:tag',
+    component: FeedComponent,
   },
   {
     path: 'content',
@@ -45,7 +39,7 @@ const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: 'home/brand',
+    redirectTo: '/',
     pathMatch: 'full'
   },
 ];

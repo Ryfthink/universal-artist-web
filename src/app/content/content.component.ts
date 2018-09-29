@@ -1,7 +1,7 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {UaService} from '../ua.service';
-import {Seed} from '../seed/seed';
+import {AppService} from '../app.service';
+import {FeedModel} from '../feed/feed.model';
 
 @Component({
   encapsulation: ViewEncapsulation.Emulated,
@@ -13,9 +13,9 @@ export class ContentComponent implements OnInit {
 
   content: '';
 
-  nav: { previous: Seed; next: Seed };
+  nav: { previous: FeedModel; next: FeedModel };
 
-  constructor(private router: ActivatedRoute, private service: UaService) {
+  constructor(private router: ActivatedRoute, private service: AppService) {
   }
 
   ngOnInit() {

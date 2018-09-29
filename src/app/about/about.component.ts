@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {UaService} from '../ua.service';
+import {AppService} from '../app.service';
 
 @Component({
   selector: 'app-about',
@@ -10,7 +10,7 @@ export class AboutComponent implements OnInit {
 
   content: '';
 
-  constructor(private service: UaService) {
+  constructor(private service: AppService) {
   }
 
   ngOnInit() {
