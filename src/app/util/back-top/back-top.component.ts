@@ -17,8 +17,12 @@ export class BackTopComponent implements AfterViewInit {
 
   @HostListener('click')
   onClick(): boolean {
-    this.smoothScroll();
+    this.scrollImmediatly();
     return true;
+  }
+
+  private scrollImmediatly() {
+    window.scrollTo(0, 0);
   }
 
   private smoothScroll() {
