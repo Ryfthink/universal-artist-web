@@ -4,6 +4,8 @@ import {AppService} from '../app.service';
 import {FeedModel} from './feed.model';
 
 import * as Masonry from 'masonry-layout';
+import {of, Subscription} from 'rxjs';
+import {delay} from 'rxjs/operators';
 
 @Component({
   selector: 'app-feed',
@@ -37,11 +39,14 @@ export class FeedComponent implements OnInit, AfterViewInit, OnDestroy, AfterVie
 
   data?: FeedModel[];
 
+  layoutSubscription: Subscription;
+
   constructor(private route: ActivatedRoute, private service: AppService) {
   }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
+      this.tag = params.tag || '';
       this.service.requestFeedList(params.tag).subscribe(list => {
         this.needLayout = true;
         this.data = list;
@@ -55,8 +60,23 @@ export class FeedComponent implements OnInit, AfterViewInit, OnDestroy, AfterVie
   ngAfterViewChecked() {
     if (this.needLayout) {
       this.needLayout = false;
-      this.masonry = new Masonry(this.grid.nativeElement, this.options);
+      this.relayoutMasonry();
     }
+  }
+
+  relayoutMasonry() {
+    if (this.layoutSubscription && this.layoutSubscription.unsubscribe()) {
+      this.layoutSubscription.unsubscribe();
+    }
+    this.layoutSubscription = of().pipe(delay(0)).subscribe(
+      _ => {
+      },
+      next => {
+      },
+      () => {
+        this.masonry = new Masonry(this.grid.nativeElement, this.options);
+      }
+    );
   }
 
   ngOnDestroy() {
