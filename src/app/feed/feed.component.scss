@@ -19,8 +19,9 @@
 
 .masonry .item,
 .masonry .grid-sizer {
-  width: 20%;
+  padding: 0 0.75rem 1.5rem;
   @media screen and (max-width: 768px) {
+    padding: 0 0 1.75rem;
     width: 100%;
   }
   @media screen and (min-width: 769px) and (max-width: 1399px) {
