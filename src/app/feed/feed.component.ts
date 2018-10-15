@@ -45,6 +45,7 @@ export class FeedComponent implements OnInit, AfterViewInit, OnDestroy, AfterVie
   }
 
   ngOnInit() {
+    console.log('AAAAAAAAA');
     this.route.params.subscribe(params => {
       this.tag = params.tag || '';
       this.service.requestFeedList(params.tag).subscribe(list => {

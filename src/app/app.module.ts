@@ -36,8 +36,8 @@ import {AppService} from './app.service';
     CommonModule,
     BrowserModule,
     BrowserAnimationsModule,
-    AppRoutingModule,
     FormsModule,
+    AppRoutingModule,
   ],
   providers: [
     AppService,
