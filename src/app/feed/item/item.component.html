@@ -2,7 +2,7 @@
   <img class="content content-img w-100 h-100"
        [attr.data-src]="feed.img | qiniuImg: feed.size" src="" alt=""
        appImgAppear>
-  <a class="content content-mask" [routerLink]="['/content', feed.id]" appTouchHover>
+  <a class="content content-mask rounded" [routerLink]="['/content', feed.id]" appTouchHover>
     <strong>{{feed.title}}</strong><br>
     <span class="comment">{{feed.subTitle}}</span>
     <em class="timestamp">{{feed.createTime | date: 'yyyy-MM-dd'}}</em>
@@ -12,7 +12,7 @@
   <img class="content content-img w-100 h-100"
        [attr.data-src]="feed.img | qiniuImg: feed.size" src="" alt=""
        appImgAppear>
-  <a class="content content-mask" [routerLink]="['/content', feed.id]" appTouchHover>
+  <a class="content content-mask rounded" [routerLink]="['/content', feed.id]" appTouchHover>
     <strong>{{feed.title}}</strong><br>
     <span class="comment">{{feed.subTitle}}</span>
     <em class="timestamp">{{feed.createTime | date: 'yyyy-MM-dd'}}</em>
