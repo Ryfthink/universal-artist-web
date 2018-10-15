@@ -16,6 +16,20 @@
   word-wrap: break-word;
 }
 
+@media (max-width: 768px) {
+  .markdown-body {
+    margin-left: -15px;
+    margin-right: -15px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .img-container {
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+}
+
 .markdown-body a {
   background: transparent;
 }
