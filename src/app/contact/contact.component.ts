@@ -9,7 +9,7 @@ import {Util} from '../util/util';
 export class ContactComponent implements OnInit {
 
   toEmail = 'zhongyanbenny@gmail.com';
-  weixin = '15216666069';
+  weixin = '17321398188';
 
   fromEmail = '';
   subject = '';
