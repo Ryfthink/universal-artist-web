@@ -1,5 +1,5 @@
 <div *ngIf="feed?.size == 'normal'" class="seed-root-normal rounded shadow">
-  <img class="content content-img w-100 h-100"
+  <img class="content content-img w-100 h-100 rounded"
        [attr.data-src]="feed.img | qiniuImg: feed.size" src="" alt=""
        appImgAppear>
   <a class="content content-mask rounded" [routerLink]="['/content', feed.id]" appTouchHover>
@@ -9,7 +9,7 @@
   </a>
 </div>
 <div *ngIf="feed?.size == 'large'" class="seed-root-large rounded shadow">
-  <img class="content content-img w-100 h-100"
+  <img class="content content-img w-100 h-100 rounded"
        [attr.data-src]="feed.img | qiniuImg: feed.size" src="" alt=""
        appImgAppear>
   <a class="content content-mask rounded" [routerLink]="['/content', feed.id]" appTouchHover>
